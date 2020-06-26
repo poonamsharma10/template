@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pangolin&amp;display=swap">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+
+  html,
+  body {
+    /* font-family: NotoSans-SemiCondensed, Arial, Helvetica, sans-serif !important; */
+    font-size: 18px;
+    line-height: 36px;
+    color: #565656;
+    overflow-x: hidden;
+    left: 0;
+    font-family: Pangolin, cursive !important;
+
+  }
+
+  header {
+    background-image: url('https://essence.eu/img/2020-04_dektop.jpg');
+    background-repeat: no-repeat;
+    height: 50vh;
+    background-size: cover;
+  }
+
+  .heading-text {
+    font-family: NotoSans-SemiCondensed, Arial, Helvetica, sans-serif !important;
+    font-size: 18px;
+    line-height: 36px;
+    color: #565656;
+  }
+
+
+
+  a {
+    color: #af1685;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    color: #821063;
+    text-decoration: none;
+  }
+</style>
+<style>
+  .carousel-container {
+    width: 100%;
+    padding: 0 1.2%;
+    margin: 0 auto;
+    min-height: 200px;
+    position: relative;
+  }
+
+  .carousel-container .carousel-inner {
+    overflow: hidden;
+  }
+
+  .carousel-container .track {
+    display: inline-flex;
+    transition: transform 0.5s;
+  }
+
+  .carousel-container .card-container {
+    /* width: 259px; */
+    width: 25%;
+    flex-shrink: 0;
+    /* height: 250px; */
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+
+  .carousel-container .card-container .card {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+
+  }
+
+  .nav button {
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
+  .nav .prev {
+    left: 10px;
+    display: none;
+  }
+
+  .nav .prev.show {
+    display: block;
+  }
+
+  .nav .next {
+    right: 10px;
+  }
+
+  .nav .next.hide {
+    display: none;
+  }
+
+
+  .card .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  .card .info {
+    border-bottom: 5px solid #b5c994;
+    padding: 10px 10px 20px 10px;
+    margin: 20px 0;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+
+  .arrow-left1,
+  .arrow-left2,
+  .arrow-left3 {
+    /* left: 40px; */
+    transform: rotate(180deg)
+  }
+  .arrow img{
+    height: 2rem;
+  }
+</style>
+<style>
+  .te-slide-pic {
+    width: 400px
+  }
+
+  .te-mobile-slide-pic,
+  .te-slide-pic {
+    border: 3px solid #d9d9d9;
+    padding: 20px;
+    background-color: #fffef9
+  }
+
+  .te-mobile-slide-pic {
+    margin-top: 30px;
+    width: 100%
+  }
+
+  .te-mobile-slide2-var,
+  .te-mobile-slide-var {
+    transition: all 1s ease-in-out;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: 50%
+  }
+
+  .te-slide-pic {
+    border: 3px solid #d9d9d9;
+    padding: 20px;
+    background-color: #fffef9;
+  }
+
+  .te-slide1-var {
+    transition: all 1s ease-in-out;
+    width: 360px;
+    height: 360px;
+    background-size: cover;
+    background-position: 50%
+  }
+
+  .te-slide1-pic1 {
+    position: relative;
+    margin-top: 100px;
+    z-index: 3
+  }
+
+  .te-slide1-pic2 {
+    position: absolute;
+    transform: rotate(15deg);
+    margin: -80px 120px;
+    z-index: 2
+  }
+
+  .te-slide1-pic3 {
+    position: absolute;
+    transform: rotate(-5deg);
+    margin: 150px 220px;
+    z-index: 1
+  }
+
+  .te-slide2-pic1 {
+    position: relative;
+    margin-top: 80px;
+    margin-left: 20%;
+    z-index: 3
+  }
+
+  .te-slide2-pic2 {
+    position: absolute;
+    transform: rotate(10deg);
+    margin: -80px 5%;
+    z-index: 2
+  }
+
+  .te-slide2-pic3 {
+    position: absolute;
+    transform: rotate(-8deg);
+    margin: 180px -5%;
+    z-index: 1
+  }
+
+  .te-slide2-var {
+    transition: all 1s ease-in-out;
+    width: 360px;
+    height: 360px;
+    background-size: cover;
+    background-position: 50%
+  }
+
+  .te-container {
+    padding: 0
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  .m-10 {
+    margin-top: 10rem;
+
+  }
+
+  .m-8 {
+    margin-top: 8rem;
+  }
+
+  .te-ctabutton {
+    font-family: NotoSans-SemiCondensed, Arial, Helvetica, sans-serif !important;
+    transition: background-color .5s ease;
+    margin-bottom: 30px;
+    margin-top: 130px !important;
+    font-size: 26px !important;
+    font-weight: 400 !important;
+    padding: 15px 50px !important;
+    letter-spacing: 3px !important;
+    border: none !important;
+    color: #fff;
+    background-color: #af1685;
+    border-color: #af1685;
+    padding: 12px 30px;
+    margin: 10px 0 0 0;
+    border: 3px solid #af1685;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+
+  }
+
+  .te-ctabutton:hover {
+    background-color: #fff !important;
+    color: #af1685 !important
+  }
+
+
+
+  @media (max-width:1223px) {
+    .wrapper {
+      padding-top: 0
+    }
+    .te-ctabutton {
+      padding: 15px 50px !important;
+      font-size: 70% !important;
+      margin-top: 80px !important
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    header {
+      background-image: url(' https://essence.eu/img/2020-04_mobile.jpg');
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 32vh;
+      background-size: cover;
+    }
+
+    main {
+      padding: 0 1.5rem;
+    }
+
+    .gff {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+
+    .te-slide-pic {
+      width: 100% !important
+    }
+
+    .te-slide1-var,
+    .te-slide2-var {
+      width: 100% !important
+    }
+
+    .te-slide2-pic1 {
+      margin-left: 0 !important;
+    }
+    .slider-item {
+    width: 20% !important;
+    }
+    .slider-item .card{
+      padding: 0 1.5% !important;
+    }
+    .nav .next {
+    right: -35px;
+}
+.nav .prev {
+    left: -35px;
+}
+.nav button:focus {
+    outline: none;
+  }
+  .vegan-img{
+    width: 65%;
+    padding-left: 23%;
+    margin: 0 auto;
+    padding-bottom: 5%;
+  }
+  .card .info {
+
+    margin: 5px 0;}
+    .m-10 {
+    margin-top: 5rem;
+}
+.m-8 {
+    margin-top: 5rem;
+}
+  }
+</style>
+
+<body>
+  <header></header>
+  <main>
+    <section class="row mt-5 d-flex align-items-center">
+      <div class="col-lg-6 offset-lg-1 col-sm-12  heading-text">
+        The essence Trend Edition "Wanna bee my honey?" Is inspired by the positive properties from the sweet world of
+        bees. It is <span class="font-weight-bold">100% vegan </span>to protect bees . However, these wonderful little helpers of nature are threatened and a
+        world without them would be unthinkable. For this reason, not a single drop of honey was deliberately used in
+        the product development to protect the little helpers and their valuable food, making it 100% vegan.
+      </div>
+      <div class="col-lg-4 offset-lg-1 d-none d-lg-block text-right">
+        <img src="https://essence.eu/img/wbmh_waben.png" />
+      </div>
+    </section>
+    <!-- section item crousel -->
+    <section class="m-10">
+      <div class="carousel-container" id="carousel-container1">
+        <div class="carousel-inner">
+          <div class="track track1">
+            <!-- item 1 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-all-over-balm-zid9269800001" target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269805_Side View.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row ">
+                      <div class="col-lg-3 col-xs-2 offset-xs-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">all over balm
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 2-->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-luminizing-primer-zid9269820001" target="_top">
+                  <div class="img"><img src="https://essence.eu/media/article_600/4059729269829_Front View Closed.png"
+                      width="100%"></div>
+                  <div class="info">
+                    <div class="row te-slider-item-title justify-content-center">
+                      <div class="col-lg-3 col-sm-6 justify-content-center">
+                        <img class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"/>
+                        </div>
+                      <div class="col-lg-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">luminizing primer
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 3 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-highlighter-brush-zid9269810001" target="_top">
+                  <div class="img"><img
+                      src="https://essence.eu/media/article_600/4059729269812_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">highlighter brush
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 4 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-colour-changing-glow-lipstick-zid9269850001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269850_Front View Full Open.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">color changing glow
+                            lipstick
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 5 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-mattifying-fixing-powder-zid9269840001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269843_Front View Closed.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? mattifying fixing powder
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!-- item 6 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-make-up-remover-pads-zid9269830001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269836_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? make up remover pads
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 7 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-eyeshadow-brush-zid9269790001" target="_top">
+                  <div class="img"><img
+                      src="https://essence.eu/media/article_600/4059729269799_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? eyeshadow brush
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 8 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-eyeshadow-highlighter-palette-zid9269770001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269775_Front View Full Open.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? eyeshadow &amp; highlighter palette
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="nav">
+          <button class="prev crousel1-prev">
+            <div class="arrow arrow-left1"><img src="https://essence.eu/img/arrow.svg"></div>
+
+          </button>
+          <button class="next crousel1-next">
+            <div class="arrow arrow-right1"><img src="https://essence.eu/img/arrow.svg"></div>
+
+            <!-- <i class="material-icons">
+              keyboard_arrow_right
+            </i> -->
+          </button>
+        </div>
+      </div>
+      </div>
+      <!--  -->
+
+    </section>
+    <!-- section heading crousel -->
+    <section class="row m-10 align-items-center">
+      <div class="col-md-6 offset-md-1 ">
+        <h2 class="d-block">20,000 euros for a bee paradise</h2>
+        <br />
+        <div class="row">
+          <div class="col-lg-2 col-sm-6">
+            <img src="https://essence.eu/img/gff.png" width="100%" class="gff">
+
+          </div>
+          <div class="col-lg-10 col-sm-12">
+            As part of the Trend Edition, we are donating a total of € 20,000 to the Green Forest Fund, creating a 3,500
+            m 2 bee paradise. A variety of trees and plants ensures long-term habitat for wild bees. The essence Trend
+            Edition team started and already planted the first trees on site.
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 offset-md-1 col-md-4">
+        <div class=" te-slide1">
+          <div class="te-slide-pic te-slide1-pic3 d-none d-lg-block "><img src="https://essence.eu/img/wbmh/01.jpg">
+          </div>
+          <div class="te-slide-pic te-slide1-pic2 d-none d-lg-block"><img src="https://essence.eu/img/wbmh/03.jpg">
+          </div>
+          <div class="te-slide-pic te-slide1-pic1">
+            <div class="te-slide1-var" id="te-slide1-var"></div>
+            <div class="te-slide-text row">
+              <div class="col-9">Anlegen der Bienenweide</div>
+              <div class="col-3"><img src="https://essence.eu/img/wbmh_te.svg" width="100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section item crousel -->
+    <section class="m-10">
+      <div class="carousel-container " id="carousel-container2">
+        <div class="carousel-inner">
+          <div class="track" id="track2">
+            <!-- item 4 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-colour-changing-glow-lipstick-zid9269850001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269850_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-sm-3 offset-sm-3"><img class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">color changing glow
+                            lipstick
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 6 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-make-up-remover-pads-zid9269830001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269836_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? make up remover pads
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 7 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-eyeshadow-brush-zid9269790001" target="_top">
+                  <div class="img"><img
+                      src="https://essence.eu/media/article_600/4059729269799_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? eyeshadow brush
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 2-->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-luminizing-primer-zid9269820001" target="_top">
+                  <div class="img"><img src="https://essence.eu/media/article_600/4059729269829_Front View Closed.png"
+                      width="100%"></div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">luminizing primer
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 5 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-mattifying-fixing-powder-zid9269840001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269843_Front View Closed.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? mattifying fixing powder
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!-- item 3 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-highlighter-brush-zid9269810001" target="_top">
+                  <div class="img"><img
+                      src="https://essence.eu/media/article_600/4059729269812_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">highlighter brush
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 8 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-eyeshadow-highlighter-palette-zid9269770001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269775_Front View Full Open.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? eyeshadow &amp; highlighter palette
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 1 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-all-over-balm-zid9269800001" target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269805_Side View.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row ">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">all over balm
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="nav">
+          <button class="prev" id="crousel2-prev">
+            <div class="arrow arrow-left1"><img src="https://essence.eu/img/arrow.svg"></div>
+
+          </button>
+          <button class="next" id="crousel2-next">
+            <div class="arrow arrow-right1"><img src="https://essence.eu/img/arrow.svg"></div>
+          </button>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- section heading crousel -->
+    <section class="row m-10 align-items-center">
+      <div class="col-xs-12 col-lg-4">
+        <div class="te-slide2">
+          <div class="te-slide-pic te-slide2-pic3 d-none d-lg-block"><img src="https://essence.eu/img/wbmh/13.jpg">
+          </div>
+          <div class="te-slide-pic te-slide2-pic2 d-none d-lg-block"><img src="https://essence.eu/img/wbmh/12.jpg">
+          </div>
+          <div class="te-slide-pic te-slide2-pic1">
+            <div class="te-slide2-var" id="te-slide2-var">
+            </div>
+            <div class="te-slide-text row">
+              <div class="col-9">Fakten über Bienen sammeln</div>
+              <div class="col-3"><img src="https://essence.eu/img/wbmh_te.svg" width="100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-lg-6 offset-lg-1  order-md-first order-first order-lg-last">
+        <h2>Inspiration für die Trend Edition</h2>
+        Bereits letztes Jahr hat sich das Trend Edition Team bei einer Imkerei über die
+        kleinen Wundertiere informiert &amp; ganz viel Inspiration für die Produktenwicklung
+        gesammelt. Wusstet ihr, dass es 500 Bienenarten gibt?
+      </div>
+      <div class="d-none d-sm-block d-md-none">
+
+        <div class="te-mobile-slide1">
+          <div class="te-mobile-slide-pic">
+            <!-- <div class="te-mobile-slide2-var" style="background-image: url("/img/wbmh/11.jpg")></div> -->
+            <div class="te-slide-text row">
+              <div class="col-9">Fakten über Bienen sammeln</div>
+              <div class="col-3"><img src="https://essence.eu/img/wbmh_te.svg" width="100%"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- section item crousel -->
+    <section class="m-10">
+      <div class="carousel-container " id="carousel-container3">
+        <div class="carousel-inner">
+          <div class="track" id="track3">
+            <!-- item 8 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-eyeshadow-highlighter-palette-zid9269770001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269775_Front View Full Open.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? eyeshadow &amp; highlighter palette
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 7 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-eyeshadow-brush-zid9269790001" target="_top">
+                  <div class="img"><img
+                      src="https://essence.eu/media/article_600/4059729269799_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? eyeshadow brush
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 5 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-mattifying-fixing-powder-zid9269840001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269843_Front View Closed.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? mattifying fixing powder
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <!-- item 1 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-all-over-balm-zid9269800001" target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269805_Side View.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row ">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">all over balm
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 4 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-colour-changing-glow-lipstick-zid9269850001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269850_Front View Full Open.png" width="100%">
+
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">color changing glow
+                            lipstick
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 6 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-make-up-remover-pads-zid9269830001"
+                  target="_top">
+                  <div class="img">
+                    <img src="https://essence.eu/media/article_600/4059729269836_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        essence WANNA bee MY HONEY? make up remover pads
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- item 3 -->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-highlighter-brush-zid9269810001" target="_top">
+                  <div class="img"><img
+                      src="https://essence.eu/media/article_600/4059729269812_Front View Full Open.png" width="100%">
+                  </div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">highlighter brush
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- item 2-->
+            <div class="card-container slider-item">
+              <div class="card">
+                <a href="https://www.essence.eu/de-de/wanna-bee-my-honey-luminizing-primer-zid9269820001" target="_top">
+                  <div class="img"><img src="https://essence.eu/media/article_600/4059729269829_Front View Closed.png"
+                      width="100%"></div>
+                  <div class="info">
+                    <div class="row te-slider-item-title">
+                      <div class="col-md-3 col-xs-6 col-xs-offset-3"><img  class="vegan-img"src="https://essence.eu/img/vegan.svg"
+                          width="100%"></div>
+                      <div class="col-md-9 col-xs-12">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">
+                            essence WANNA bee MY HONEY? </font>
+                          <font style="vertical-align: inherit;">luminizing primer
+                          </font>
+                        </font>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+        <div class="nav">
+          <button class="prev" id="crousel3-prev">
+            <div class="arrow arrow-left1"><img src="https://essence.eu/img/arrow.svg"></div>
+
+          </button>
+          <button class="next" id="crousel3-next">
+            <div class="arrow arrow-right1"><img src="https://essence.eu/img/arrow.svg"></div>
+          </button>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- section heading -->
+    <section class="row m-8 align-items-center">
+      <div class="col-xs-12 col-md-5 offset-md-1 text-center"><img src="https://essence.eu/img/essence_cares.svg"
+          width="50%" style="margin-bottom: 50px;"></div>
+      <div class="col-xs-12 col-md-5 offset-md-0">
+        Die Kollektion ist Teil der neuen <strong>Initiative essence cares</strong>, mit der
+        sich die Marke für Umwelt, soziale Projekte, Tierwohl und unbedenkliche
+        Inhaltsstoffe einsetzt. Der Support der Bienen liegt essence dabei besonders am
+        Herzen, denn die fleißigen Insekten produzieren nicht nur leckeren Honig, sondern
+        sind als summende und brummende Bestäuber unentbehrlich für unser Ökosystem.
+        Wildbienen sind u. a. durch fehlendes Nahrungsangebot, giftigem Dünger, großen
+        Betonflächen &amp; Abholzung gefährdet. Die Trend Edition soll einen kleinen Beitrag
+        im Rahmen der Spende an GREEN FOREST FUND und durch die Produkte Aufmerksamkeit für
+        unsere kleinen Helfer schaffen.
+      </div>
+
+    </section>
+    <!-- Footer -->
+    <section>
+      <div class="row m-10">
+        <div class="col-md-12"><img src="https://essence.eu/img/bee.svg" width="80%"></div>
+      </div>
+      <div class="row">
+        <div class="col-12" style="margin-top: 0px !important;">
+          <div style="text-align: center; margin: 0px 0 50px !important;"><a target="_top"
+              href="https://www.essence.eu/de-de/trend-editions/wanna-bee-my-honey/"
+              class="btn btn-lg btn-primary te-ctabutton" style="margin-top: 50px">
+              JETZT ENTDECKEN
+            </a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+    const prev1 = document.querySelector('.crousel1-prev');
+    const next1 = document.querySelector('.crousel1-next');
+    const track1 = document.querySelector('.track1');
+    let carouselWidth1 = document.getElementById('carousel-container1').offsetWidth;
+    window.addEventListener('resize', () => {
+      carouselWidth1 = document.getElementById('carousel-container1').offsetWidth;
+    })
+  
+    let index1 = 0;
+    next1.addEventListener('click', () => {
+      index1++;
+      prev1.classList.add('show');
+      track1.style.transform = `translateX(-${index1 * carouselWidth1}px)`;
+      if (track1.offsetWidth - (index1 * carouselWidth1) < carouselWidth1) {
+        next1.classList.add('hide');
+      }
+    })
+    prev1.addEventListener('click', () => {
+      index1--;
+      next1.classList.remove('hide');
+      if (index1 === 0) {
+        prev1.classList.remove('show');
+      }
+      track1.style.transform = `translateX(-${index1 * carouselWidth1}px)`;
+    })
+
+    // crousel 2
+    const prev2 = document.getElementById('crousel2-prev');
+    const next2 = document.getElementById('crousel2-next');
+    const track2 = document.getElementById('track2');
+    let carouselWidth2 = document.getElementById('carousel-container2').offsetWidth;
+    window.addEventListener('resize', () => {
+      carouselWidth2 = document.getElementById('carousel-container2').offsetWidth;
+    })
+    let index2 = 0;
+    prev2.addEventListener('click', () => {
+      index2--;
+      next2.classList.remove('hide');
+      if (index2 === 0) {
+        prev2.classList.remove('show');
+      }
+      track2.style.transform = `translateX(-${index2 * carouselWidth2}px)`;
+    })
+    next2.addEventListener('click', () => {
+      index2++;
+      prev2.classList.add('show');
+      track2.style.transform = `translateX(-${index2 * carouselWidth2}px)`;
+      if (track2.offsetWidth - (index2 * carouselWidth2) < carouselWidth2) {
+        next2.classList.add('hide');
+      }
+    })
+    // crousel 3
+
+    let index = 0;
+    const prev3 = document.getElementById('crousel3-prev');
+    const next3 = document.getElementById('crousel3-next');
+    const track3 = document.getElementById('track3');
+    let carouselWidth3 = document.getElementById('carousel-container3').offsetWidth;
+
+    window.addEventListener('resize', () => {
+      carouselWidth3 = document.getElementById('carousel-container3').offsetWidth;
+    })
+    prev3.addEventListener('click', () => {
+      handelPrev(prev3, next3, carouselWidth3, track3)
+    })
+    next3.addEventListener('click', () => {
+      handelNext(prev3, next3, carouselWidth3, track3)
+    })
+    const handelNext = (prev, next, carouselWidth, track) => {
+      index++;
+      prev.classList.add('show');
+      track.style.transform = `translateX(-${index * carouselWidth}px)`;
+      if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
+        next.classList.add('hide');
+      }
+
+    }
+
+    const handelPrev = (prev, next, carouselWidth, track) => {
+      index--;
+      next.classList.remove('hide');
+      if (index === 0) {
+        prev.classList.remove('show');
+      }
+      track.style.transform = `translateX(-${index * carouselWidth}px)`;
+
+    }
+
+
+
+    // silide2
+
+    var i = 0;
+    var i2 = 0;
+    var time = 3000; // time in millie seconds
+
+    function changeImage() {
+
+      const images = [
+        'https://essence.eu/img/wbmh/01.jpg',
+        'https://essence.eu/img/wbmh/02.jpg',
+        'https://essence.eu/img/wbmh/03.jpg',
+        'https://essence.eu/img/wbmh/04.jpg',
+        'https://essence.eu/img/wbmh/05.jpg'
+      ]
+      const imagesSlide2 = [
+        'https://essence.eu/img/wbmh/11.jpg',
+        'https://essence.eu/img/wbmh/12.jpg',
+        'https://essence.eu/img/wbmh/13.jpg'
+      ]
+
+      var el = document.getElementById('te-slide1-var');
+      var el2 = document.getElementById('te-slide2-var');
+      let imgUrl = 'url(' + images[i] + ')';
+      let imgUrl2 = 'url(' + imagesSlide2[i2] + ')';
+      el.style.backgroundImage = imgUrl;
+      el2.style.backgroundImage = imgUrl2;
+      if (i < images.length - 1) {
+        i++;
+      } else {
+        i = 0;
+      }
+      if (i2 < imagesSlide2.length - 1) {
+        i2++;
+      } else {
+        i2 = 0;
+      }
+      setTimeout('changeImage()', time);
+    }
+    window.onload = changeImage;
+  </script>
+</body>
+
+</html>
