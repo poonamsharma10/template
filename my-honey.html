@@ -335,15 +335,20 @@
       margin-left: 0 !important;
     }
 
+    .carousel-container{
+  width: 100% !important;
+  padding: 0 1% !important;
+
+}
     .gv960 .slider-item {
-      width: 20% !important;
-      padding: 1%;
+      width: 13% !important;
+    padding: 1%;
     }
 
-    .gv960 .slider-item .card {
-      padding: 0 1.5% !important;
-    }
 
+    .gv960 .carousel-container .card-container .card{
+      padding: 1rem 1rem;
+}
     .gv960 .nav .next {
       right: -35px;
     }
@@ -379,6 +384,8 @@
     display: block;
     align-items: center;
 }
+
+
   }
 
 
@@ -1118,6 +1125,7 @@
       carouselWidth1 = document.getElementById('carousel-container1').offsetWidth;
     })
 
+console.log('carouselWidth1',carouselWidth1,track1.offsetWidth)
     let index1 = 0;
     next1.addEventListener('click', () => {
       index1++;
