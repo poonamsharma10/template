@@ -12,12 +12,11 @@
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
+<!-- common styles -->
 <style>
   html,
-  body {
+  body ,.gv960 {
     /* font-family: NotoSans-SemiCondensed, Arial, Helvetica, sans-serif !important; */
     font-size: 18px;
     line-height: 36px;
@@ -28,14 +27,14 @@
 
   }
 
-  header {
+  .gv960 header {
     background-image: url('https://essence.eu/img/2020-04_dektop.jpg');
     background-repeat: no-repeat;
     height: 50vh;
     background-size: cover;
   }
 
-  .heading-text {
+  .gv960 .heading-text {
     font-family: NotoSans-SemiCondensed, Arial, Helvetica, sans-serif !important;
     font-size: 18px;
     line-height: 36px;
@@ -44,228 +43,43 @@
 
 
 
-  a {
+  .gv960 a {
     color: #af1685;
     text-decoration: none;
   }
 
-  a:hover,
+  .gv960 a:hover,
   a:focus {
     color: #821063;
     text-decoration: none;
   }
-</style>
-<style>
-  .carousel-container {
-    width: 100%;
-    padding: 0 1.2%;
-    margin: 0 auto;
-    min-height: 200px;
-    position: relative;
-  }
 
-  .carousel-container .carousel-inner {
-    overflow: hidden;
-  }
-
-  .carousel-container .track {
-    display: inline-flex;
-    transition: transform 0.5s;
-  }
-
-  .carousel-container .card-container {
-    /* width: 259px; */
-    width: 25%;
-    flex-shrink: 0;
-    /* height: 250px; */
-    padding-right: 15px;
-    box-sizing: border-box;
-  }
-
-  .carousel-container .card-container .card {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 2rem;
-
-  }
-
-  .nav button {
-    width: 60px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    border: none;
-    background: transparent;
-  }
-
-  .nav .prev {
-    left: 10px;
-    display: none;
-  }
-
-  .nav .prev.show {
-    display: block;
-  }
-
-  .nav .next {
-    right: 10px;
-  }
-
-  .nav .next.hide {
-    display: none;
-  }
-
-
-  .card .img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-  }
-
-  .card .info {
-    border-bottom: 5px solid #b5c994;
-    padding: 10px 10px 20px 10px;
-    margin: 20px 0;
-    font-size: 18px;
-    line-height: 23px;
-  }
-
-
-  .arrow-left1,
-  .arrow-left2,
-  .arrow-left3 {
-    /* left: 40px; */
-    transform: rotate(180deg)
-  }
-
-  .arrow img {
-    height: 2rem;
-  }
-</style>
-<style>
-  .te-slide-pic {
-    width: 400px
-  }
-
-  .te-mobile-slide-pic,
-  .te-slide-pic {
-    border: 3px solid #d9d9d9;
-    padding: 20px;
-    background-color: #fffef9
-  }
-
-  .te-mobile-slide-pic {
-    margin-top: 30px;
-    width: 100%
-  }
-
-  .te-mobile-slide2-var,
-  .te-mobile-slide-var {
-    transition: all 1s ease-in-out;
-    width: 100%;
-    height: 300px;
-    background-size: cover;
-    background-position: 50%
-  }
-
-  .te-slide-pic {
-    border: 3px solid #d9d9d9;
-    padding: 20px;
-    background-color: #fffef9;
-  }
-
-  .te-slide1-var {
-    transition: all 1s ease-in-out;
-    width: 360px;
-    height: 360px;
-    background-size: cover;
-    background-position: 50%
-  }
-
-  .te-slide1-pic1 {
-    position: relative;
-    margin-top: 100px;
-    z-index: 3
-  }
-
-  .te-slide1-pic2 {
-    position: absolute;
-    transform: rotate(15deg);
-    margin: -80px 120px;
-    z-index: 2
-  }
-
-  .te-slide1-pic3 {
-    position: absolute;
-    transform: rotate(-5deg);
-    margin: 150px 220px;
-    z-index: 1
-  }
-
-  .te-slide2-pic1 {
-    position: relative;
-    margin-top: 80px;
-    margin-left: 20%;
-    z-index: 3
-  }
-
-  .te-slide2-pic2 {
-    position: absolute;
-    transform: rotate(10deg);
-    margin: -80px 5%;
-    z-index: 2
-  }
-
-  .te-slide2-pic3 {
-    position: absolute;
-    transform: rotate(-8deg);
-    margin: 180px -5%;
-    z-index: 1
-  }
-
-  .te-slide2-var {
-    transition: all 1s ease-in-out;
-    width: 360px;
-    height: 360px;
-    background-size: cover;
-    background-position: 50%
-  }
-
-  .te-container {
-    padding: 0
-  }
-
-  img {
+  .gv960 img {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
   }
 
-  .m-10 {
+  .gv960 .m-10 {
     margin-top: 10rem;
 
   }
 
-  .m-8 {
+  .gv960 .m-8 {
     margin-top: 8rem;
   }
 
-  .mt-5 {
+  .gv960 .mt-5 {
     margin-top: 2rem;
   }
 
-  .align-items-center {
+  .gv960 .align-items-center {
     display: flex;
     align-items: center;
   }
 
 
-  .te-ctabutton {
+  .gv960 .te-ctabutton {
     font-family: NotoSans-SemiCondensed, Arial, Helvetica, sans-serif !important;
     transition: background-color .5s ease;
     margin-bottom: 30px;
@@ -287,31 +101,211 @@
 
   }
 
-  .te-ctabutton:hover {
+  .gv960 .te-ctabutton:hover {
     background-color: #fff !important;
     color: #af1685 !important
   }
 
-  .header-heading {
+  .gv960 .header-heading {
     color: black
   }
-
-
-
-  @media (max-width:1223px) {
-    .wrapper {
-      padding-top: 0
-    }
-
-    .te-ctabutton {
-      padding: 15px 50px !important;
-      font-size: 70% !important;
-      margin-top: 80px !important
-    }
+  .gv960 .pt-1 {
+    padding-top: 1rem;
+  }
+  .gv960 .font-weight-bold{
+    font-weight: bold;
+  }
+</style>
+<!-- multi image crousal style-->
+<style>
+  .gv960 .carousel-container {
+    width: 100%;
+    padding: 0 1.2%;
+    margin: 0 auto;
+    min-height: 200px;
+    position: relative;
   }
 
+  .gv960 .carousel-container .carousel-inner {
+    overflow: hidden;
+  }
+
+  .gv960 .carousel-container .track {
+    display: inline-flex;
+    transition: transform 0.5s;
+  }
+
+  .gv960 .carousel-container .card-container {
+    /* width: 259px; */
+    width: 25%;
+    flex-shrink: 0;
+    /* height: 250px; */
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+
+  .gv960 .carousel-container .card-container .card {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+
+  }
+
+  .gv960 .nav button {
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
+  .gv960 .nav .prev {
+    left: 10px;
+    display: none;
+  }
+
+  .gv960 .nav .prev.show {
+    display: block;
+  }
+
+  .gv960 .nav .next {
+    right: 10px;
+  }
+
+  .gv960 .nav .next.hide {
+    display: none;
+  }
+
+
+  .gv960 .card .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  .gv960 .card .info {
+    border-bottom: 5px solid #b5c994;
+    padding: 10px 10px 20px 10px;
+    margin: 20px 0;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+
+  .gv960 .arrow-left1,
+  .gv960 .arrow-left2,
+  .gv960 .arrow-left3 {
+    /* left: 40px; */
+    transform: rotate(180deg)
+  }
+
+  .gv960 .arrow img {
+    height: 2rem;
+  }
+</style>
+<!-- multi images crousal style -->
+<style>
+ .gv960 .te-slide-pic {
+    width: 400px
+  }
+
+  .gv960  .te-mobile-slide-pic,
+  .gv960 .te-slide-pic {
+    border: 3px solid #d9d9d9;
+    padding: 20px;
+    background-color: #fffef9
+  }
+
+  .gv960  .te-mobile-slide-pic {
+    margin-top: 30px;
+    width: 100%
+  }
+
+  .gv960 .te-mobile-slide2-var,
+  .gv960 .te-mobile-slide-var {
+    transition: all 1s ease-in-out;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: 50%
+  }
+
+  .gv960  .te-slide-pic {
+    border: 3px solid #d9d9d9;
+    padding: 20px;
+    background-color: #fffef9;
+  }
+
+  .gv960  .te-slide1-var {
+    transition: all 1s ease-in-out;
+    width: 360px;
+    height: 360px;
+    background-size: cover;
+    background-position: 50%
+  }
+
+  .gv960 .te-slide1-pic1 {
+    position: relative;
+    margin-top: 0px;
+    /* margin-top: 100px; */
+    z-index: 3
+  }
+
+  .gv960 .te-slide1-pic2 {
+    position: absolute;
+    transform: rotate(15deg);
+    margin: -80px 120px;
+    z-index: 2
+  }
+
+  .gv960 .te-slide1-pic3 {
+    position: absolute;
+    transform: rotate(-5deg);
+    margin: 150px 220px;
+    z-index: 1
+  }
+
+  .gv960 .te-slide2-pic1 {
+    position: relative;
+    margin-top: 80px;
+    margin-left: 20%;
+    z-index: 3
+  }
+
+  .gv960 .te-slide2-pic2 {
+    position: absolute;
+    transform: rotate(10deg);
+    margin: -80px 5%;
+    z-index: 2
+  }
+
+  .gv960 .te-slide2-pic3 {
+    position: absolute;
+    transform: rotate(-8deg);
+    margin: 180px -5%;
+    z-index: 1
+  }
+
+  .gv960 .te-slide2-var {
+    transition: all 1s ease-in-out;
+    width: 360px;
+    height: 360px;
+    background-size: cover;
+    background-position: 50%
+  }
+
+  .gv960 .te-container {
+    padding: 0
+  }
+/* responsive styles */
   @media screen and (max-width: 1024px) {
-    header {
+    .gv960 header {
       background-image: url(' https://essence.eu/img/2020-04_mobile.jpg');
       background-repeat: no-repeat;
       width: 100%;
@@ -319,82 +313,78 @@
       background-size: cover;
     }
 
-    main {
+    .gv960 main {
       padding: 0 1.5rem;
     }
 
-    .gff {
+    .gv960 .gff {
       width: 50%;
       margin-bottom: 20px;
     }
 
-    .te-slide-pic {
+    .gv960 .te-slide-pic {
       width: 100% !important
     }
 
-    .te-slide1-var,
-    .te-slide2-var {
+    .gv960 .te-slide1-var,
+    .gv960 .te-slide2-var {
       width: 100% !important
     }
 
-    .te-slide2-pic1 {
+    .gv960 .te-slide2-pic1 {
       margin-left: 0 !important;
     }
 
-    .slider-item {
+    .gv960 .slider-item {
       width: 20% !important;
+      padding: 1%;
     }
 
-    .slider-item .card {
+    .gv960 .slider-item .card {
       padding: 0 1.5% !important;
     }
 
-    .nav .next {
+    .gv960 .nav .next {
       right: -35px;
     }
 
-    .nav .prev {
+    .gv960 .nav .prev {
       left: -35px;
     }
 
-    .nav button:focus {
+    .gv960.nav button:focus {
       outline: none;
     }
 
-    .vegan-img {
+    .gv960.vegan-img {
       width: 65%;
       padding-left: 23%;
       margin: 0 auto;
       padding-bottom: 5%;
     }
 
-    .card .info {
+    .gv960.card .info {
 
       margin: 5px 0;
     }
 
-    .m-10 {
+    .gv960 .m-10 {
       margin-top: 5rem;
     }
 
-    .m-8 {
+    .gv960 .m-8 {
       margin-top: 5rem;
     }
-    .align-items-center {
+    .gv960 .align-items-center {
     display: block;
     align-items: center;
 }
   }
 
-.pt-1 {
-    padding-top: 1rem;
-  }
-  .font-weight-bold{
-    font-weight: bold;
-  }
+
 </style>
 
-<body>
+<body class="gv960">
   <header></header>
   <main>
     <section class="row mt-5 d-flex align-items-center">
