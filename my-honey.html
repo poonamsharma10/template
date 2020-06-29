@@ -118,6 +118,14 @@
 </style>
 <!-- multi image crousal style-->
 <style>
+  .te-slider1, .te-slider2, .te-slider3 {
+    transition: all .5s ease-in-out;
+    width: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 100px 0;
+  }
   .gv960 .carousel-container {
     width: 100%;
     padding: 0 1.2%;
@@ -357,7 +365,7 @@
       left: -35px;
     }
 
-    .gv960.nav button:focus {
+    .gv960 .nav button:focus {
       outline: none;
     }
 
@@ -384,7 +392,14 @@
     display: block;
     align-items: center;
 }
-
+.te-slider1, .te-slider2, .te-slider3 {
+    transition: all .5s ease-in-out;
+    width: 400% !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 100px 0;
+  }
 
   }
 
@@ -406,7 +421,7 @@
     <section class="m-10">
       <div class="carousel-container" id="carousel-container1">
         <div class="carousel-inner">
-          <div class="track track1">
+          <div class="track track1 te-slider1">
             <!-- item 1 -->
             <div class="card-container slider-item">
               <div class="card">
@@ -648,7 +663,7 @@
     <section class="m-10">
       <div class="carousel-container " id="carousel-container2">
         <div class="carousel-inner">
-          <div class="track" id="track2">
+          <div class="track te-slider2" id="track2">
             <!-- item 4 -->
             <div class="card-container slider-item">
               <div class="card">
@@ -874,7 +889,7 @@
     <section class="m-10">
       <div class="carousel-container " id="carousel-container3">
         <div class="carousel-inner">
-          <div class="track" id="track3">
+          <div class="track te-slider3" id="track3">
             <!-- item 8 -->
             <div class="card-container slider-item">
               <div class="card">
@@ -1120,34 +1135,37 @@
     const prev1 = document.querySelector('.crousel1-prev');
     const next1 = document.querySelector('.crousel1-next');
     const track1 = document.querySelector('.track1');
+    const slide1= document.querySelector('.te-slider1');
     let carouselWidth1 = document.getElementById('carousel-container1').offsetWidth;
     window.addEventListener('resize', () => {
       carouselWidth1 = document.getElementById('carousel-container1').offsetWidth;
     })
 
-console.log('carouselWidth1',carouselWidth1,track1.offsetWidth)
     let index1 = 0;
     next1.addEventListener('click', () => {
       index1++;
       prev1.classList.add('show');
-      track1.style.transform = `translateX(-${index1 * carouselWidth1}px)`;
+      slide1.style.marginLeft = `-${index1*100}%`;
       if (track1.offsetWidth - (index1 * carouselWidth1) < carouselWidth1) {
         next1.classList.add('hide');
       }
     })
     prev1.addEventListener('click', () => {
+      console.log('slide1.style.marginLeft',slide1.style.marginLeft)
+    
       index1--;
+      slide1.style.marginLeft = `-${index1*100}%`;
       next1.classList.remove('hide');
       if (index1 === 0) {
         prev1.classList.remove('show');
       }
-      track1.style.transform = `translateX(-${index1 * carouselWidth1}px)`;
     })
 
     // crousel 2
     const prev2 = document.getElementById('crousel2-prev');
     const next2 = document.getElementById('crousel2-next');
     const track2 = document.getElementById('track2');
+    const slide2= document.querySelector('.te-slider2');
     let carouselWidth2 = document.getElementById('carousel-container2').offsetWidth;
     window.addEventListener('resize', () => {
       carouselWidth2 = document.getElementById('carousel-container2').offsetWidth;
@@ -1155,16 +1173,16 @@ console.log('carouselWidth1',carouselWidth1,track1.offsetWidth)
     let index2 = 0;
     prev2.addEventListener('click', () => {
       index2--;
+      slide2.style.marginLeft = `-${index2*100}%`;
       next2.classList.remove('hide');
       if (index2 === 0) {
         prev2.classList.remove('show');
       }
-      track2.style.transform = `translateX(-${index2 * carouselWidth2}px)`;
     })
     next2.addEventListener('click', () => {
       index2++;
+      slide2.style.marginLeft = `-${index2*100}%`;
       prev2.classList.add('show');
-      track2.style.transform = `translateX(-${index2 * carouselWidth2}px)`;
       if (track2.offsetWidth - (index2 * carouselWidth2) < carouselWidth2) {
         next2.classList.add('hide');
       }
@@ -1175,6 +1193,7 @@ console.log('carouselWidth1',carouselWidth1,track1.offsetWidth)
     const prev3 = document.getElementById('crousel3-prev');
     const next3 = document.getElementById('crousel3-next');
     const track3 = document.getElementById('track3');
+    const slide3=document.querySelector('.te-slider3');
     let carouselWidth3 = document.getElementById('carousel-container3').offsetWidth;
 
     window.addEventListener('resize', () => {
@@ -1189,7 +1208,7 @@ console.log('carouselWidth1',carouselWidth1,track1.offsetWidth)
     const handelNext = (prev, next, carouselWidth, track) => {
       index++;
       prev.classList.add('show');
-      track.style.transform = `translateX(-${index * carouselWidth}px)`;
+      slide3.style.marginLeft = `-${index*100}%`;
       if (track.offsetWidth - (index * carouselWidth) < carouselWidth) {
         next.classList.add('hide');
       }
@@ -1202,7 +1221,7 @@ console.log('carouselWidth1',carouselWidth1,track1.offsetWidth)
       if (index === 0) {
         prev.classList.remove('show');
       }
-      track.style.transform = `translateX(-${index * carouselWidth}px)`;
+      slide3.style.marginLeft = `-${index*100}%`;
 
     }
 
